@@ -1,13 +1,14 @@
-# SidebarMenuApp
+# My Sidebar Menu App
 
 ### Welcome to my small sidebar menu application
 Lets get started:
+
 To run the application type: 
 ```
 $ npm start
 ```
 
-To install the json-server first run the command 
+To install the json-server first run the command (this will be done globally)
 ```
 $ npm install -g json-server
 ```

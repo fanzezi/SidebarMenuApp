@@ -11,7 +11,7 @@ interface IMenuItemProps{
     updateContent: (arg: string) => void;
 }
 
-// Builds tree structure based on the input data and handles conditions for when item is active
+// Builds tree structure based on the input data and handles conditions for item when active (clicked)
 function MenuItems (props: IMenuItemProps){
     const[isActive, setIsActive] = useState(false);
     const[itemIndexNumber, setItemIndexNumber] = useState(0);
@@ -32,14 +32,16 @@ function MenuItems (props: IMenuItemProps){
                             handleClick(item.name, index);
                         }}>
                             <div className="menuItem" >
-                                {item.children !== undefined ? 
+                                {item.children ? 
                                     isActive && itemIndexNumber === index  ? 
-                                    <div className="selectedItem">{String.fromCharCode(8249)} {item.name}</div> :
-                                    String.fromCharCode(8250) + " " + item.name : 
+                                    <div className="selectedItem">
+                                        {String.fromCharCode(9662)} {item.name}
+                                    </div> :
+                                    String.fromCharCode(9656) + " " + item.name : 
                                 item.name}
                             </div>
                         </div>
-                        {isActive && item.children !== undefined && itemIndexNumber === index ?
+                        {isActive && item.children && itemIndexNumber === index ?
                             <MenuItems items={item.children} updateContent={props.updateContent}/> : 
                             "" 
                         }
@@ -54,7 +56,7 @@ function Navbar(props: any) {
     // State to save data from fetch
     const[data, setData] = useState([]);
     //fetch data from JSON-server
-    const getData = ()=>{
+    const getData = () => {
           fetch("http://localhost:4000/data").then((response) => response.json()).then((data) => {
           setData(data);
         }).catch((err) => {
