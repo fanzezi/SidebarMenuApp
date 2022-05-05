@@ -4,9 +4,10 @@
     background-color: #222D32;
     border-right: 1px solid rgb(220, 220, 220);
 }
+
 ul, li {
     list-style-type: none;
-    }
+}
 
 .selectMenu{
     cursor: pointer;
